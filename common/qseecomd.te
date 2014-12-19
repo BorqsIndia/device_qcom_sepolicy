@@ -47,3 +47,7 @@ userdebug_or_eng(`
   allow tee shell_data_file:file rw_file_perms;
   allow tee shell_data_file:dir search;
 ')
+
+#allow access to qfp-daemon
+allow tee qfp-daemon_data_file:dir create_dir_perms;
+allow tee qfp-daemon_data_file:file create_file_perms;

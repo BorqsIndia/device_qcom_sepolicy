@@ -48,6 +48,7 @@ BOARD_SEPOLICY_UNION := \
        mpdecision.te \
        perfd.te \
        mm-qcamerad.te \
+       qfp-daemon.te \
        domain.te \
        init.te \
        time_daemon.te \
