@@ -187,6 +187,8 @@
 /sys/bus/msm_subsys/devices/subsys2/restart_level                   u:object_r:sysfs_ssr_toggle:s0
 /sys/bus/msm_subsys/devices/subsys3/restart_level                   u:object_r:sysfs_ssr_toggle:s0
 /sys/bus/msm_subsys/devices/subsys4/restart_level                   u:object_r:sysfs_ssr_toggle:s0
+/sys/class/leds/flashlight/brightness                               u:object_r:sysfs_flashlight:s0
+/sys/devices/soc.0/flashlight.64/leds/flashlight/brightness          u:object_r:sysfs_flashlight:s0
 /sys/devices/soc0/.*                                                u:object_r:sysfs_socinfo:s0
 
 ###################################
