@@ -103,6 +103,9 @@ type display_config, file_type, data_file_type;
 #Define the sysfs files for led
 type sysfs_flashlight, sysfs_type, fs_type;
 
+#Define the files for the operation of QDCM
+type persist_display_file, file_type;
+
 # IPA file types
 type ipacm_socket, file_type;
 type ipacm_data_file, file_type;
