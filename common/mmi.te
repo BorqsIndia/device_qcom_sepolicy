@@ -88,7 +88,7 @@ allow mmi nfc_data_file:dir rw_dir_perms;
 allow mmi nfc_data_file:file create_file_perms;
 
 #simcard
-allow mmi qmuxd:unix_stream_socket connectto;
+qmux_socket(mmi);
 
 #allow mmi access chgdiabled prop
 allow mmi chgdiabled_prop:property_service set;
