@@ -92,3 +92,6 @@ qmux_socket(mmi);
 
 #allow mmi access chgdiabled prop
 allow mmi chgdiabled_prop:property_service set;
+
+#Needed for handling diag commands
+allow mmi diag_device:chr_file rw_file_perms;
