@@ -74,3 +74,9 @@ netmgr_socket(system_server);
 # So init can manage our process
 allow system_server RIDL:fd use;
 allow system_server RIDL:fifo_file write;
+
+#allow binder calls
+binder_call(system_server, seempd)
+
+#for seemp
+unix_socket_send(system_server, seempdw, seempd)
