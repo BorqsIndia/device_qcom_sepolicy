@@ -13,7 +13,10 @@ allow system_server sensors_socket:sock_file r_file_perms;
 qmux_socket(system_server);
 
 # Access to persist
-allow system_server persist_file:file r_file_perms;
+
+allow system_server persist_file:dir r_dir_perms;
+allow system_server sensors_persist_file:dir r_dir_perms;
+allow system_server sensors_persist_file:file r_file_perms;
 
 # access to perflock
 allow system_server mpctl_socket:dir r_dir_perms;
