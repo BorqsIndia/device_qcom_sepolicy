@@ -63,3 +63,6 @@ allow system_server smd_device:chr_file rw_file_perms;
 
 allow system_server fuse:dir search;
 allow system_server persist_file:dir search;
+
+#For FRP
+allow system_server persistent_data_block_device:blk_file rw_file_perms;

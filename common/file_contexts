@@ -57,6 +57,7 @@
 /dev/hbtp_input                                 u:object_r:hbtp_device:s0
 /dev/jdi-bu21150                                u:object_r:bu21150_device:s0
 /dev/ontario                                    u:object_r:ontario_device:s0
+/dev/block/bootdevice/by-name/config            u:object_r:persistent_data_block_device:s0
 
 ###################################
 # Dev socket nodes
