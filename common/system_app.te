@@ -4,6 +4,7 @@ allow system_app fm_prop:property_service set;
 allow system_app ctl_default_prop:property_service set;
 allow system_app atfwd_service:service_manager add;
 allow system_app dun_service:service_manager add;
+allow system_app STAProxyService:service_manager add;
 
 #write to properties
 allow system_app camera_prop:property_service set;
