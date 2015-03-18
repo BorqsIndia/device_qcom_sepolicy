@@ -88,12 +88,10 @@ BOARD_SEPOLICY_UNION := \
        installd.te \
        wcnss_service.te \
        recovery.te \
-       wfd_app.te \
        mmi.te \
        kernel.te \
        vold.te\
        dhcp.te \
-       wfd_app.te \
        mediaserver_test.te \
        hbtp.te
 
