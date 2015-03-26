@@ -97,6 +97,7 @@ BOARD_SEPOLICY_UNION := \
        dhcp.te \
        mediaserver_test.te \
        hbtp.te \
+       qfips.te \
        wfdservice.te \
        dtsconfigurator.te \
        platform_app.te \
