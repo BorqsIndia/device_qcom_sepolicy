@@ -94,7 +94,8 @@ BOARD_SEPOLICY_UNION := \
        dhcp.te \
        mediaserver_test.te \
        hbtp.te \
-       wfdservice.te
+       wfdservice.te \
+       dtsconfigurator.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084
