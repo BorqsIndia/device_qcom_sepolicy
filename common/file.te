@@ -118,3 +118,6 @@ type  proc_dirty_ratio, fs_type;
 
 #File types by mmi
 type mmi_socket, file_type;
+
+# dts notifier files
+type dts_data_file, file_type, data_file_type;
