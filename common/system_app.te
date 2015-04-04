@@ -49,3 +49,6 @@ allow system_app dts_data_file:file r_file_perms;
 userdebug_or_eng(`
   r_dir_file(system_app, firmware_file);
 ')
+
+# allow system_app to interact with dtseagleservice
+binder_call(system_app, dtseagleservice)
