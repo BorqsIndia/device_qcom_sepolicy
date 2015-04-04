@@ -50,3 +50,6 @@ allow dpmd self:netlink_socket create_socket_perms;
 
 #allow dpmd to access /proc/<pid>/net
 allow dpmd domain:dir r_dir_perms;
+
+#allow dpmd to write to /proc/net/sys
+allow dpmd proc_net:file write;
