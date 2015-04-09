@@ -31,5 +31,5 @@ allow location rfs_shared_hlos_file:dir r_dir_perms;
 allow location rfs_shared_hlos_file:file r_file_perms;
 allow location system_server:unix_stream_socket { read write };
 
-dontaudit location domain:dir r_dir_perms;
-r_dir_file(location, netmgrd)
+#Allow access to netmgrd socket
+netmgr_socket(location);
