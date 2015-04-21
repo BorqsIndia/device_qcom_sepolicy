@@ -55,3 +55,6 @@ userdebug_or_eng(`
 
 # allow system_app to interact with dtseagleservice
 binder_call(system_app, dtseagleservice)
+
+#allow access to qfp-daemon
+binder_call(system_app, qfp-daemon)
