@@ -130,3 +130,6 @@ type dts_data_file, file_type, data_file_type;
 
 # used for /dsp files    file types
 type adsprpcd_file, file_type;
+
+# RIDL data files
+type RIDL_data_file, file_type, data_file_type;
