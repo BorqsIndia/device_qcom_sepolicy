@@ -7,3 +7,6 @@ init_daemon_domain(adsprpcd)
 
 #============= adsprpcd ==============
 allow adsprpcd qdsp_device:chr_file { read ioctl open };
+
+#for reading files on /dsp
+allow adsprpcd adsprpcd_file:file r_file_perms;

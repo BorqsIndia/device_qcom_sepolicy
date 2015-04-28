@@ -253,6 +253,11 @@
 /persist/display(/.*)?                                              u:object_r:persist_display_file:s0
 
 ###################################
+# adsp files
+#
+/dsp(/.*)?                                                          u:object_r:adsprpcd_file:s0
+
+###################################
 # oem files
 #
 /oem(/.*)?       u:object_r:system_file:s0
