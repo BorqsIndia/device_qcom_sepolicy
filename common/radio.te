@@ -16,3 +16,6 @@ allow radio ims:unix_stream_socket connectto;
 allow radio video_device:dir r_dir_perms;
 allow radio video_device:chr_file rw_file_perms;
 allow radio smd_device:chr_file rw_file_perms;
+
+# IMS needs permission to use avtimer
+allow radio avtimer_device:chr_file r_file_perms;
