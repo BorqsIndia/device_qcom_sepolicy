@@ -23,3 +23,7 @@ allow qfp-daemon property_socket:sock_file write;
 
 # RW to device driver
 allow qfp-daemon ontario_device:chr_file rw_file_perms;
+
+# R dir perms for firmware dir
+allow qfp-daemon firmware_file:dir r_dir_perms;
+allow qfp-daemon firmware_file:file r_file_perms;
