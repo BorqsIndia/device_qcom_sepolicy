@@ -58,3 +58,6 @@ binder_call(system_app, dtseagleservice)
 
 #allow access to qfp-daemon
 binder_call(system_app, qfp-daemon)
+
+# allow system_app to interact with fido daemon
+binder_call(system_app, fidodaemon)
