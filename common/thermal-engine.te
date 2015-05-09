@@ -31,3 +31,5 @@ allow thermal-engine mpctl_socket:dir search;
 allow thermal-engine mpctl_socket:sock_file write;
 unix_socket_send(thermal-engine, mpctl, perfd)
 unix_socket_connect(thermal-engine, mpctl, perfd)
+#This is required for wake alarm access
+allow thermal-engine self:capability2 wake_alarm;
