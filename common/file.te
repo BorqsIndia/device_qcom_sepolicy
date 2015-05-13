@@ -136,6 +136,7 @@ type adsprpcd_file, file_type;
 
 # RIDL data files
 type RIDL_data_file, file_type, data_file_type;
+type RIDL_socket, file_type;
 
 # subsystem_ramdump files
 type ssr_ramdump_data_file, file_type, data_file_type;
