@@ -9,3 +9,9 @@ unix_socket_connect(untrusted_app, mpctl, mpdecision)
 userdebug_or_eng(`
   binder_call(untrusted_app, hbtp);
 ')
+
+# test apps needs to communicate with imscm
+# using binder call
+userdebug_or_eng(`
+  binder_call(untrusted_app, imscm)
+')
