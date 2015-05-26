@@ -88,3 +88,6 @@ type hbtp_device, dev_type;
 
 #Define ontario device - ultrasonic fingperprint sensor
 type ontario_device, dev_type;
+
+#add device for FRP
+type persistent_data_block_device, dev_type;
