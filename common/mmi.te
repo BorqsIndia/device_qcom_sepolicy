@@ -30,6 +30,9 @@ allow mmi mmi_data_file:file create_file_perms;
 #socket
 unix_socket_connect(mmi, property, init)
 allow mmi socket_device:dir w_dir_perms;
+allow mmi sensors:unix_stream_socket connectto;
+allow mmi sensors_device:chr_file rw_file_perms;
+allow mmi sensors_socket:sock_file create_file_perms;
 
 #allow mmi set system prop,sensor need write persist
 allow mmi powerctl_prop:property_service set;
