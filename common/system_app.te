@@ -64,3 +64,6 @@ binder_call(system_app, fidodaemon)
 
 # allow system_app to interact with imscm daemon
 binder_call(system_app, imscm)
+
+# allow system_app to access netd
+unix_socket_connect(system_app, netd, netd)
