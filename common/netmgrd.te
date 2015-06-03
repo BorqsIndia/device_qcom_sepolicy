@@ -66,3 +66,7 @@ allow netmgrd wcnss_service_exec:file rx_file_perms;
 allow netmgrd { wcnss_service_exec wpa_exec }:file rx_file_perms;
 
 allow netmgrd sysfs:file write;
+
+#Allow netmgrd to create netmgrd socket
+allow netmgrd netmgrd_socket:dir create_dir_perms;
+allow netmgrd netmgrd_socket:sock_file create_file_perms;

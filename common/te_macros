@@ -11,6 +11,18 @@ allow $1 qmuxd_socket:sock_file { read getattr write setattr create unlink };
 ')
 
 #####################################
+# netmgr_socket(clientdomain)
+# Allow client domain to connecto and send
+# via a local socket to the netmgrd domain.
+# Also allow the client domain to remove
+# its own socket.
+define(`netmgr_socket', `
+allow $1 netmgrd_socket:dir r_dir_perms;
+unix_socket_connect($1, netmgrd, netmgrd)
+allow $1 netmgrd_socket:sock_file { read getattr write };
+')
+
+#####################################
 # diag_rw(clientdomain)
 # Allow domains to read and write
 # /dev/diag nodes.
