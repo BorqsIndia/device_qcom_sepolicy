@@ -90,6 +90,10 @@ type gadget_serial_device, dev_type;
 type bu21150_device, dev_type;
 type hbtp_device, dev_type;
 
+#Define qfintverify device
+type qce_device, dev_type;
+type rng_device, dev_type;
+
 #Define ontario device - ultrasonic fingperprint sensor
 type ontario_device, dev_type;
 
