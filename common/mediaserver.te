@@ -44,6 +44,12 @@ allow mediaserver debugfs:file rw_file_perms;
 allow mediaserver thermal_socket:sock_file write;
 allow mediaserver thermal-engine:unix_stream_socket connectto;
 
+#This is required for thermal sysfs access
+allow mediaserver sysfs_thermal:dir { read search open };
+allow mediaserver sysfs_thermal:file rw_file_perms;
+allow mediaserver sysfs_thermal:lnk_file read;
+allow mediaserver sysfs:file write;
+
 #allow mediaserver to communicate with timedaemon
 allow mediaserver time_daemon:unix_stream_socket connectto;
 
