@@ -20,3 +20,6 @@ allow netd wpa_socket:sock_file create_file_perms;
 
 allow netd wfdservice:fd use;
 allow netd wfdservice:tcp_socket rw_socket_perms;
+
+# allow to read /data/misc/ipa/tether_stats file
+r_dir_file(netd, ipacm_data_file)
