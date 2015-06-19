@@ -105,6 +105,7 @@ BOARD_SEPOLICY_UNION := \
        platform_app.te \
        dtseagleservice.te \
        nfc.te \
+       wifi_ftmd.te \
        net.te \
        dnsmasq.te \
        ridl.te \
