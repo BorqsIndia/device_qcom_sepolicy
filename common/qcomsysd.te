@@ -25,7 +25,10 @@ allow qcomsysd self:capability { dac_override };
 #need to access config file in data partition
 allow qcomsysd modem_config_file:file rw_file_perms;
 
+#need to write this node for reset
+allow qcomsysd proc_sysrq:file rw_file_perms;
+
 #need to do qmi communication
 qmux_socket(qcomsysd)
-allow qcomsysd self:capability { dac_read_search dac_override };
+allow qcomsysd self:capability { dac_read_search dac_override fsetid sys_boot};
 allow qcomsysd self:socket { read write create ioctl };
