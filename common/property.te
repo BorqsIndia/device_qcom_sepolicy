@@ -6,3 +6,4 @@ type camera_prop, property_type;
 type power_prop, property_type;
 type backup_prop, property_type;
 type chgdiabled_prop, property_type;
+type wififtmd_prop, property_type;

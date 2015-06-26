@@ -93,6 +93,7 @@
 /dev/socket/rild3-debug                         u:object_r:rild_debug_socket:s0
 /dev/socket/msm_irqbalance                      u:object_r:msm_irqbalance_socket:s0
 /dev/socket/RIDL(/.*)?                          u:object_r:RIDL_socket:s0
+/dev/socket/wififtmd_server                     u:object_r:wififtmd_socket:s0
 
 ###################################
 # System files
@@ -176,6 +177,7 @@
 /system/bin/dun-server                          u:object_r:dun-server_exec:s0
 /system/bin/wfdservice                          u:object_r:wfdservice_exec:s0
 /system/vendor/bin/RIDLClient.exe               u:object_r:RIDL_exec:s0
+/system/bin/wifi_ftmd                           u:object_r:wifi_ftmd_exec:s0
 
 ###################################
 # sysfs files

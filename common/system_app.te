@@ -41,6 +41,10 @@ allow system_app tee:unix_dgram_socket sendto;
 # access to time_daemon
 allow system_app time_daemon:unix_stream_socket connectto;
 
+#access to wifi_ftmd
+allow system_app wififtmd_prop:property_service set;
+unix_socket_send(system_app, wififtmd, wifi_ftmd)
+
 # access to color service SDK
 allow system_app color_service:service_manager add;
 
