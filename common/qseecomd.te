@@ -54,3 +54,23 @@ allow tee qfp-daemon_data_file:file create_file_perms;
 
 # allow qseecom access to set system property
 allow tee system_prop:property_service set;
+
+# Provide access to block devices for MDTP
+allow tee mdtp_device:blk_file rw_file_perms;
+allow tee dip_device:blk_file rw_file_perms;
+allow tee system_block_device:blk_file r_file_perms;
+
+# Provide access to QC Crypto driver for MDTP
+allow tee qce_device:chr_file rw_file_perms;
+
+# Provide access to /data/misc/qsee/mdtp for MDTP temp files
+allow tee data_qsee_file:dir create_dir_perms;
+allow tee data_qsee_file:file create_file_perms;
+allow tee data_qsee_file:fifo_file create_file_perms;
+
+# Provide read access to all /system files for MDTP file-to-block-mapping
+r_dir_file(tee, exec_type)
+r_dir_file(tee, system_file)
+
+# Provide tee ability to run executables in rootfs for MDTP
+allow tee rootfs:file x_file_perms;

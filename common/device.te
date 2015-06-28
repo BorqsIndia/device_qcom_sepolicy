@@ -46,6 +46,11 @@ type modem_efs_partition_device, dev_type;
 type ssd_device, dev_type;
 type rpmb_device, dev_type;
 type sd_device, dev_type;
+type dip_device, dev_type;
+type mdtp_device, dev_type;
+
+#QCE device
+type qce_device, dev_type;
 
 #ESOC device
 type esoc_device, dev_type;
@@ -91,7 +96,6 @@ type bu21150_device, dev_type;
 type hbtp_device, dev_type;
 
 #Define qfintverify device
-type qce_device, dev_type;
 type rng_device, dev_type;
 
 #Define ontario device - ultrasonic fingperprint sensor

@@ -12,6 +12,7 @@
 /dev/msm_thermal_query                          u:object_r:thermal_device:s0
 /dev/nfc-nci                                    u:object_r:nfc_device:s0
 /dev/qseecom                                    u:object_r:tee_device:s0
+/dev/qce                                        u:object_r:qce_device:s0
 /dev/radio0                                     u:object_r:fm_radio_device:s0
 /dev/rtc0                                       u:object_r:rtc_device:s0
 /dev/sensors                                    u:object_r:sensors_device:s0
@@ -32,6 +33,8 @@
 /dev/block/bootdevice/by-name/fsg               u:object_r:modem_efs_partition_device:s0
 /dev/block/bootdevice/by-name/fsc               u:object_r:modem_efs_partition_device:s0
 /dev/block/bootdevice/by-name/ssd               u:object_r:ssd_device:s0
+/dev/block/bootdevice/by-name/dip               u:object_r:dip_device:s0
+/dev/block/bootdevice/by-name/mdtp              u:object_r:mdtp_device:s0
 /dev/block/mmcblk0rpmb                          u:object_r:rpmb_device:s0
 /dev/block/mmcblk1                              u:object_r:sd_device:s0
 /dev/block/mmcblk1p1                            u:object_r:sd_device:s0
@@ -58,7 +61,6 @@
 /dev/hbtp_input                                 u:object_r:hbtp_device:s0
 /dev/jdi-bu21150                                u:object_r:bu21150_device:s0
 /dev/ontario                                    u:object_r:ontario_device:s0
-/dev/qce                                        u:object_r:qce_device:s0
 /dev/msm-rng                                    u:object_r:rng_device:s0
 /dev/block/bootdevice/by-name/config            u:object_r:persistent_data_block_device:s0
 /dev/avtimer                                    u:object_r:avtimer_device:s0
