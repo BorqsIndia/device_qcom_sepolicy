@@ -122,6 +122,8 @@ SSC_TARGET_LIST += msm8226
 SSC_TARGET_LIST += msm8960
 SSC_TARGET_LIST += msm8974
 SSC_TARGET_LIST += msm8994
+SSC_TARGET_LIST += msm8952
+SSC_TARGET_LIST += msm8909
 
 #ifeq ($(call is-board-platform-in-list,$(SSC_TARGET_LIST)),true)
 BOARD_SEPOLICY_UNION += sensors.te
