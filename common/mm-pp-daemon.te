@@ -37,6 +37,9 @@ userdebug_or_eng(`
     allow mm-pp-daemon system_file:file execute_no_trans;
     allow mm-pp-daemon zygote_exec:file rx_file_perms;
     allow mm-pp-daemon self:process ptrace;
+
+    # This allows pp-daemon to set debug property
+    allow mm-pp-daemon debug_prop:property_service set;
 ')
 
 # Allow mm-pp-daemon to change the brightness of the target during display
