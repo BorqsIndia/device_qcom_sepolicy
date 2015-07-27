@@ -54,3 +54,7 @@ allow mm-qcamerad mmi:fd use;
 
 #Alow  mm-qcamera-daemon to open, read, write and send ioctl to qdsp device.
 allow mm-qcamerad qdsp_device:chr_file { open read write ioctl };
+
+#Allow access to /dev/graphics/fb* for screen capture
+allow mm-qcamerad graphics_device:dir search;
+allow mm-qcamerad graphics_device:chr_file rw_file_perms;
