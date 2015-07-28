@@ -15,3 +15,6 @@ allow ueventd sysfs_thermal:file w_file_perms;
 allow ueventd sysfs_usb_supply:file w_file_perms;
 
 allow ueventd sysfs_socinfo:file w_file_perms;
+
+#allow ueventd to write to kmsg device
+allow ueventd kmsg_device:chr_file rw_file_perms;
