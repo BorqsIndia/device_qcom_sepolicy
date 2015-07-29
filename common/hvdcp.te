@@ -11,6 +11,7 @@ allow hvdcp sysfs_battery_supply:file rw_file_perms;
 allow hvdcp sysfs_battery_supply:dir { search };
 allow hvdcp sysfs_usb_supply:file rw_file_perms;
 allow hvdcp sysfs_usb_supply:dir { search };
+allow hvdcp sysfs:file rw_file_perms;
 # dac_override required to write to /dev/__kmsg__
 allow hvdcp self:capability { setgid setuid dac_override };
 allow hvdcp kmsg_device:chr_file rw_file_perms;
