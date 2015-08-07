@@ -128,4 +128,10 @@ BOARD_SEPOLICY_UNION += sensors.te
 BOARD_SEPOLICY_UNION += sensors_test.te
 #endif
 
+# Compile energyawareness policy for EA enabled targets
+IS_MSM8976:=$(strip $(call is-board-platform-in-list,msm8952))
+ifneq ($(IS_MSM8976),)
+BOARD_SEPOLICY_UNION += energyawareness.te
+endif
+
 endif
