@@ -72,5 +72,8 @@ allow tee data_qsee_file:fifo_file create_file_perms;
 r_dir_file(tee, exec_type)
 r_dir_file(tee, system_file)
 
+# Provide tee ability to access QMUXD for QMI
+qmux_socket(tee);
+
 # Provide tee ability to run executables in rootfs for MDTP
 allow tee rootfs:file x_file_perms;
