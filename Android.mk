@@ -122,10 +122,18 @@ SSC_TARGET_LIST += msm8226
 SSC_TARGET_LIST += msm8960
 SSC_TARGET_LIST += msm8974
 SSC_TARGET_LIST += msm8994
+SSC_TARGET_LIST += msm8952
+SSC_TARGET_LIST += msm8909
 
 #ifeq ($(call is-board-platform-in-list,$(SSC_TARGET_LIST)),true)
 BOARD_SEPOLICY_UNION += sensors.te
 BOARD_SEPOLICY_UNION += sensors_test.te
 #endif
+
+# Compile energyawareness policy for EA enabled targets
+IS_MSM8976:=$(strip $(call is-board-platform-in-list,msm8952))
+ifneq ($(IS_MSM8976),)
+BOARD_SEPOLICY_UNION += energyawareness.te
+endif
 
 endif
