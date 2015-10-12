@@ -1,5 +1,5 @@
 # tee starts as root, and drops privileges
-allow tee self:capability { setuid setgid dac_override sys_rawio };
+allow tee self:capability { fsetid setuid setgid dac_override sys_rawio };
 
 # Need to directly manipulate certain block devices
 # for anti-rollback protection
@@ -77,3 +77,6 @@ qmux_socket(tee);
 
 # Provide tee ability to run executables in rootfs for MDTP
 allow tee rootfs:file x_file_perms;
+
+allow tee self:socket { write read create ioctl };
+allow tee smem_log_device:chr_file rw_file_perms;
