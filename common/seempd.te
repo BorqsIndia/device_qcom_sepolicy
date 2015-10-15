@@ -25,60 +25,33 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-# RIDL
-type RIDL, domain;
-type RIDL_exec, exec_type, file_type;
+type seempd, domain;
+type seempd_exec, exec_type, file_type;
 
-type_transition RIDL RIDL_data_file:sock_file RIDL_socket;
-allow RIDL RIDL_socket:sock_file create_file_perms;
-allow RIDL RIDL_socket:dir create_dir_perms;
+init_daemon_domain(seempd)
 
-# make transition from init to its domain
-init_daemon_domain(RIDL)
+allow seempd tee_device:chr_file rw_file_perms;
+allow seempd seemplog_device:chr_file rw_file_perms;
+#TODO: create the dir from init.rc instead.
+allow seempd seemp_file:dir create_dir_perms;
+allow seempd seemp_file:{ file fifo_file } create_file_perms;
 
-# allow socket connections to us
-net_domain(RIDL)
+# allow seempd to load firmware images
+allow seempd firmware_file:dir r_dir_perms;
+allow seempd firmware_file:file r_file_perms;
 
-allow RIDL RIDL_data_file:dir create_dir_perms;
-allow RIDL RIDL_data_file:file create_file_perms;
-allow RIDL RIDL_data_file:lnk_file { create read unlink };
-allow RIDL debugfs:file read;
+#allow access to packages.list
+allow seempd system_data_file:file r_file_perms;
 
-# ver_info.txt
-r_dir_file(RIDL, firmware_file)
+#allow binder calls
+binder_use(seempd)
+binder_call(seempd, system_server)
+binder_call(seempd, appdomain)
 
-# sdcard0/1
-allow RIDL fuse:dir create_dir_perms;
-allow RIDL fuse:file create_file_perms;
+#allow read access to proc files for app_domain
+dontaudit seempd domain:dir r_dir_perms;
+r_dir_file(seempd, appdomain)
 
-# dmesg
-allow RIDL kernel:system syslog_read;
-
-# QMUX
-qmux_socket(RIDL)
-
-# ramdumps
-allow RIDL ramdump_device:chr_file rw_file_perms;
-
-# logcat
-unix_socket_connect(RIDL, logdr, logd)
-
-binder_use(RIDL)
-allow RIDL shell_exec:file { rx_file_perms };
-allow RIDL sysfs:file write;
-allow RIDL system_file:file x_file_perms;
-binder_call(RIDL, system_server)
-
-# recovery
-allow RIDL cache_file:dir create_dir_perms;
-allow RIDL cache_file:file create_file_perms;
-
-# reboot recovery
-allow RIDL powerctl_prop:property_service set;
-unix_socket_connect(RIDL, property, init)
-
-# Access to ANR/segfaults
-userdebug_or_eng(`
-	allow RIDL tombstone_data_file:dir rw_dir_perms;
-	allow RIDL tombstone_data_file:file { unlink rw_file_perms };
-')
+#for seemp
+allow seempd seemp_service:service_manager add;
+allow seempd self:binder call;

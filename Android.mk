@@ -106,6 +106,7 @@ BOARD_SEPOLICY_UNION := \
        hbtp.te \
        qfips.te \
        wfdservice.te \
+       seempd.te \
        dtsconfigurator.te \
        platform_app.te \
        dtseagleservice.te \
