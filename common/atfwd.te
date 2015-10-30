@@ -14,3 +14,6 @@ binder_call(atfwd, servicemanager);
 r_dir_file(atfwd, sysfs_ssr);
 
 allow atfwd self:udp_socket create;
+
+#write system property
+allow atfwd property_socket:sock_file write;
