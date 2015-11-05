@@ -8,4 +8,6 @@ unix_socket_connect(appdomain, qlogd, qlogd)
 unix_socket_send(appdomain, seempdw, seempd)
 #Allow all apps to open and send ioctl to qdsp device
 allow appdomain qdsp_device:chr_file r_file_perms;
+#Allow all apps to have read access to dsp partition
+r_dir_file(appdomain, adsprpcd_file)
 
