@@ -123,6 +123,12 @@ binder_call(system_app, esepmdaemon)
 # allow system_app to interact with seemp health daemon
 binder_call(system_app, seemp_health_daemon)
 
+# allow system_app to interact with display color hal
+hal_client_domain(system_app, hal_display_color)
+
+# allow system_app to interact with display postproc hal
+hal_client_domain(system_app, hal_display_postproc)
+
 #allow access to RIDL
 allow system_app RIDL_data_file:dir rw_dir_perms;
 allow system_app RIDL_data_file:file create_file_perms;
@@ -196,3 +202,15 @@ unix_socket_connect(system_app, ims, ims)
 
 # access to qseeproxy domain
 allow system_app qseeproxy:unix_dgram_socket sendto;
+
+#allow system_app access boot mode switch
+set_prop(system_app, boot_mode_prop);
+
+# allow access to cache recovery for LK3
+allow system_app cache_file:dir create_dir_perms;
+allow system_app cache_file:file create_file_perms;
+allow system_app cache_recovery_file:dir rw_dir_perms;
+allow system_app cache_recovery_file:file create_file_perms;
+
+# update engine
+binder_call( system_app, update_engine )

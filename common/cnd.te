@@ -40,8 +40,7 @@ allow cnd self:{
 allow cnd self:netlink_tcpdiag_socket nlmsg_read;
 
 # allow cnd to set system property
-allow cnd system_prop:property_service set;
-unix_socket_connect(cnd, property, init)
+set_prop(cnd, system_prop)
 
 # allow cnd to access cnd_data_file
 allow cnd cnd_data_file:file create_file_perms;
@@ -98,3 +97,4 @@ allow cnd proc_meminfo:file r_file_perms;
 allow cnd self:socket ioctl;
 allowxperm cnd self:socket ioctl msm_sock_ipc_ioctls;
 allow cnd sysfs:file r_file_perms;
+allow cnd sysfs_data:file r_file_perms;

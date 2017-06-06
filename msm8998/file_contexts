@@ -100,10 +100,11 @@
 
 ##################################
 # FBE
-/system/bin/init.qcom.qseecomd.sh						u:object_r:init-qcom-fbe-sh_exec:s0
+/(vendor|system/vendor)/bin/init.qti.qseecomd.sh				u:object_r:init-qti-fbe-sh_exec:s0
 
 ###################################
 # sysfs files
 #
 /sys/devices/soc/75ba000.i2c/i2c-12/12-0020/input/input[0-9]/secure_touch_enable u:object_r:sysfs_securetouch:s0
 /sys/devices/virtual/graphics/fb([0-3])+/lineptr_value                          u:object_r:sysfs_graphics:s0
+/sys/devices/virtual/graphics/fb([0-3])+/msm_fb_persist_mode                    u:object_r:sysfs_graphics:s0
