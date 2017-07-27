@@ -79,7 +79,7 @@
 
 ##################################
 # FBE
-/system/bin/init.qti.qseecomd.sh						u:object_r:init-qti-fbe-sh_exec:s0
+/(vendor|system/vendor)/bin/init.qti.qseecomd.sh				u:object_r:init-qti-fbe-sh_exec:s0
 
 ##################################
 # non-hlos mount points
@@ -99,6 +99,7 @@
 /dev/block/platform/soc/c0c4000.sdhci/by-name/mdtpsecapp_[ab]   u:object_r:mdtp_device:s0
 /dev/block/platform/soc/c0c4000.sdhci/by-name/hyp_[ab]          u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc/c0c4000.sdhci/by-name/keymaster_[ab]    u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/c0c4000.sdhci/by-name/dsp_[ab]          u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc/c0c4000.sdhci/by-name/modem_[ab]        u:object_r:modem_block_device:s0
 /dev/block/platform/soc/c0c4000.sdhci/by-name/bluetooth_[ab]    u:object_r:modem_block_device:s0
 /dev/block/platform/soc/c0c4000.sdhci/by-name/msadp_[ab]        u:object_r:custom_ab_block_device:s0
@@ -120,6 +121,7 @@
 /dev/block/platform/soc/1da4000.ufshc/by-name/mdtpsecapp_[ab]   u:object_r:mdtp_device:s0
 /dev/block/platform/soc/1da4000.ufshc/by-name/hyp_[ab]          u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc/1da4000.ufshc/by-name/keymaster_[ab]    u:object_r:custom_ab_block_device:s0
+/dev/block/platform/soc/1da4000.ufshc/by-name/dsp_[ab]          u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc/1da4000.ufshc/by-name/modem_[ab]        u:object_r:modem_block_device:s0
 /dev/block/platform/soc/1da4000.ufshc/by-name/bluetooth_[ab]    u:object_r:modem_block_device:s0
 /dev/block/platform/soc/1da4000.ufshc/by-name/msadp_[ab]        u:object_r:custom_ab_block_device:s0
@@ -135,3 +137,9 @@
 
 # Block devices for the drive that holds the xbl_a and xbl_b partitions.
 /dev/block/platform/soc/1da4000.ufshc/sd[bc]                 u:object_r:xbl_block_device:s0
+
+############################################################################################
+#Same hal process libs
+#
+/vendor/lib(64)?/hw/gralloc\.sdm660\.so   u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/hw/vulkan\.sdm660\.so    u:object_r:same_process_hal_file:s0

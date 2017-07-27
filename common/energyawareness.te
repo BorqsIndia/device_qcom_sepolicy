@@ -1,5 +1,5 @@
 type energyawareness, domain;
-type energyawareness_exec, exec_type, file_type;
+type energyawareness_exec, exec_type, vendor_file_type, file_type;
 
 #started by init
 init_daemon_domain(energyawareness)
@@ -15,9 +15,8 @@ allow energyawareness sysfs:file w_file_perms;
 
 #debugfs access
 userdebug_or_eng(`
-typeattribute energyawareness qti_debugfs_domain;
-allow energyawareness debugfs:dir r_dir_perms;
-allow energyawareness debugfs:file rw_file_perms;
+allow energyawareness qti_debugfs:dir r_dir_perms;
+allow energyawareness qti_debugfs:file rw_file_perms;
 ')
 
 r_dir_file(energyawareness, sysfs)

@@ -26,18 +26,15 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #access to perflock
-unix_socket_send(hal_audio, mpctl, perfd)
-unix_socket_connect(hal_audio, mpctl, perfd)
+#unix_socket_send(hal_audio, mpctl, perfd)
+#unix_socket_connect(hal_audio, mpctl, perfd)
 
-# Allow hal_audio to create socket files for audio arbitration
-allow hal_audio audio_data_file:sock_file { create setattr unlink };
-allow hal_audio audio_data_file:dir remove_name;
 
 # Allow hal_audio to read soundcard state under /proc/asound
 allow hal_audio proc_audiod:file r_file_perms;
 
-allow hal_audio audio_data_file:dir ra_dir_perms;
-allow hal_audio audio_data_file:file create_file_perms;
+allow hal_audio_default audio_data_file:dir rw_dir_perms;
+allow hal_audio_default audio_data_file:file create_file_perms;
 
 userdebug_or_eng(`
   diag_use(hal_audio)
@@ -48,3 +45,6 @@ allow hal_audio firmware_file:dir r_dir_perms;
 allow hal_audio firmware_file:file r_file_perms;
 #Split A2dp specific
 binder_call(hal_audio,bluetooth)
+
+#for perf hal call
+hal_client_domain(hal_audio_default, hal_perf)

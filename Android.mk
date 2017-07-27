@@ -5,7 +5,15 @@ BOARD_SEPOLICY_DIRS := \
        $(BOARD_SEPOLICY_DIRS) \
        $(LOCAL_PATH) \
        $(LOCAL_PATH)/common \
+       $(LOCAL_PATH)/ssg \
        $(LOCAL_PATH)/test \
        $(LOCAL_PATH)/$(TARGET_BOARD_PLATFORM)
 
+BOARD_PLAT_PUBLIC_SEPOLICY_DIR := \
+    $(BOARD_PLAT_PUBLIC_SEPOLICY_DIR) \
+    $(LOCAL_PATH)/public
+
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR := \
+    $(BOARD_PLAT_PRIVATE_SEPOLICY_DIR) \
+    $(LOCAL_PATH)/private
 endif

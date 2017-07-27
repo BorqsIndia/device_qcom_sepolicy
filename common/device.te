@@ -123,9 +123,6 @@ type system_health_monitor_device, dev_type;
 #Define usf device
 type usf_device, dev_type;
 
-#Define seemplog device
-type seemplog_device, dev_type;
-
 #Define qbt1000 device - ultrasonic fingperprint sensor
 type qbt1000_device, dev_type;
 
@@ -149,3 +146,6 @@ type custom_ab_block_device, dev_type;
 type xbl_block_device, dev_type;
 type gpt_block_device, dev_type;
 type modem_block_device, dev_type;
+
+#define bgcom char device
+type bg_daemon_device, dev_type;

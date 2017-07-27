@@ -1,4 +1,3 @@
-type wfdservice, domain;
 type wfdservice_exec, exec_type, file_type;
 
 #Allow for transition from init domain to wfdservice
@@ -9,6 +8,10 @@ net_domain(wfdservice)
 
 #Allow wfdservice to use Binder IPC
 binder_use(wfdservice)
+
+#Allow hardware binder use
+hwbinder_use(wfdservice)
+get_prop(wfdservice, hwservicemanager_prop)
 
 #Allow for interaction with Display HAL
 binder_call(wfdservice, surfaceflinger)
@@ -79,11 +82,6 @@ allow wfdservice self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl
 
 # Allow it to use perflock
 allow wfdservice mpctl_socket:dir r_dir_perms;
-allow wfdservice dpmservice:service_manager add;
-unix_socket_send(wfdservice, mpctl, perfd)
-unix_socket_connect(wfdservice, mpctl, perfd)
-unix_socket_send(wfdservice, mpctl, mpdecision)
-unix_socket_connect(wfdservice, mpctl, mpdecision)
 
 # Allow access to input_device for touch input detection
 allow wfdservice input_device:dir r_dir_perms;
@@ -104,3 +102,27 @@ allow wfdservice self:netlink_socket create_socket_perms_no_ioctl;
 
 #Allow ion device access
 allow wfdservice ion_device:chr_file r_file_perms;
+
+#Allow hal graphics mapper permissions
+hal_client_domain(wfdservice, hal_graphics_composer);
+
+#Allow hal graphics allocator permissions
+hal_client_domain(wfdservice, hal_graphics_allocator);
+
+#Allow udp socket ioctl
+allow wfdservice self:udp_socket ioctl;
+
+# ioctlcmd=8bff
+allowxperm wfdservice self:udp_socket ioctl priv_sock_ioctls;
+
+#Allow access to proc/net/arp
+allow wfdservice proc_net:file r_file_perms;
+
+hal_client_domain(wfdservice, wifidisplayhalservice);
+
+#Denial seen - SELinux : avc:  denied  { find } for interface=com.qualcomm.qti.wifidisplayhal::IHDCPSession
+#pid=3530 scontext=u:r:wfdservice:s0 tcontext=u:object_r:wifidisplayhalservice_hwservice:s0 tclass=hwservice_manager
+allow wfdservice wifidisplayhalservice_hwservice:hwservice_manager find;
+
+allow wfdservice sysfs_graphics:file r_file_perms;
+allow wfdservice sysfs_graphics:dir r_dir_perms;

@@ -38,6 +38,26 @@ attribute hal_display_postproc;
 attribute hal_display_postproc_client;
 attribute hal_display_postproc_server;
 
-attribute hal_dpm_qmi;
-attribute hal_dpm_qmi_client;
-attribute hal_dpm_qmi_server;
+attribute hal_hbtp;
+attribute hal_hbtp_client;
+attribute hal_hbtp_server;
+
+attribute hal_perf;
+attribute hal_perf_client;
+attribute hal_perf_server;
+
+attribute wifidisplayhalservice;
+attribute wifidisplayhalservice_client;
+attribute wifidisplayhalservice_server;
+
+attribute hal_alarm_qti;
+attribute hal_alarm_qti_client;
+attribute hal_alarm_qti_server;
+
+attribute hal_vehicle;
+attribute hal_vehicle_client;
+attribute hal_vehicle_server;
+
+attribute hal_vpp;
+attribute hal_vpp_client;
+attribute hal_vpp_server;

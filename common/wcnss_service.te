@@ -1,5 +1,5 @@
 type wcnss_service, domain;
-type wcnss_service_exec, exec_type, file_type;
+type wcnss_service_exec, exec_type, vendor_file_type, file_type;
 
 init_daemon_domain(wcnss_service)
 net_domain(wcnss_service)
@@ -12,12 +12,17 @@ allow wcnss_service wifi_data_file:dir w_dir_perms;
 allow wcnss_service wifi_data_file:file create_file_perms;
 
 set_prop(wcnss_service, system_prop)
+
+allow wcnss_service wifi_vendor_data_file:dir w_dir_perms;
+allow wcnss_service wifi_vendor_data_file:file create_file_perms;
+
 allow wcnss_service persist_file:dir r_dir_perms;
 qmux_socket(wcnss_service);
 
 allow wcnss_service self:socket create_socket_perms;
 # ioctlcmd=c304
 allowxperm wcnss_service self:socket ioctl msm_sock_ipc_ioctls;
+allowxperm wcnss_service self:udp_socket ioctl SIOCIWFIRSTPRIV_05;
 allow wcnss_service smem_log_device:chr_file rw_file_perms;
 allow wcnss_service proc_net:file rw_file_perms;
 
@@ -53,5 +58,5 @@ r_dir_file(wcnss_service, mnt_user_file)
 diag_use(wcnss_service)
 ')
 
-binder_use(wcnss_service)
+#binder_use(wcnss_service)
 use_per_mgr(wcnss_service)

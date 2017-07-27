@@ -27,7 +27,7 @@
 
 type pd_mapper, domain;
 
-type pd_mapper_exec, exec_type, file_type;
+type pd_mapper_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(pd_mapper);
 
 #Needed to read the json files from /firmware
@@ -44,3 +44,6 @@ qmux_socket(pd_mapper);
 allow pd_mapper sysfs:file r_file_perms;
 allow pd_mapper sysfs_data:file r_file_perms;
 allow pd_mapper system_file:dir r_dir_perms;
+
+#Allow pd-mapper to write error strings from non-hlos side to kmsg
+allow pd_mapper kmsg_device:chr_file w_file_perms;
