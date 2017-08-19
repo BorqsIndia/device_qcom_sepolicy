@@ -29,6 +29,9 @@ type ctl_qmuxd_prop, property_type;
 type ctl_netmgrd_prop, property_type;
 type ctl_port-bridge_prop, property_type;
 
+# property for LKCore ctl start
+type ctl_LKCore_prop, property_type;
+
 # properties for usf daemons
 type usf_prop, property_type;
 
@@ -40,6 +43,7 @@ type ipacm_prop, property_type;
 type ipacm-diag_prop, property_type;
 type sensors_prop, property_type;
 type msm_irqbalance_prop, property_type;
+type msm_irqbl_sdm630_prop, property_type;
 type camera_prop, property_type;
 type spcomlib_prop, property_type;
 type sdm_idle_time_prop, property_type;
@@ -86,7 +90,9 @@ type dolby_prop, property_type;
 type wififtmd_prop, property_type;
 
 # WIGIG
+type wigig_prop, property_type;
 type fst_prop, property_type;
+type ctl_vendor_wigigsvc_prop, property_type;
 
 type alarm_handled_prop, property_type;
 type alarm_instance_prop, property_type;
@@ -113,3 +119,5 @@ type vendor_rild_libpath_prop, property_type;
 
 #Peripheral manager
 type per_mgr_state_prop, property_type;
+
+type vendor_system_prop, property_type;

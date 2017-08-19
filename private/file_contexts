@@ -38,6 +38,7 @@
 ####### system file ###############
 /system/bin/seempd                              u:object_r:seempd_exec:s0
 /system/bin/dpmd                                u:object_r:dpmd_exec:s0
+/system/bin/dun-server                          u:object_r:dun-server_exec:s0
 
 ####### data files ################
 /data/misc/seemp(/.*)?                          u:object_r:seemp_data_file:s0
