@@ -28,6 +28,8 @@ allow system_server {
     # Allow system_server to add digital pen system service
     usf_service
     #dpmservice
+    # Location IZat Service
+    izat_service
 }:service_manager add;
 
 allow system_server qtitetherservice_service:service_manager find;
