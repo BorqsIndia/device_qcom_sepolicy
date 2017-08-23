@@ -37,3 +37,13 @@ allow hal_sensors sysfs_socinfo:file r_file_perms;
 allow hal_sensors sensors_persist_file:dir create_dir_perms;
 allow hal_sensors sensors_persist_file:file create_file_perms;
 allow hal_sensors sysfs_data:file r_file_perms;
+
+allow hal_sensors sysfs:dir r_dir_perms;
+allow hal_sensors sysfs:file rw_file_perms;
+allow hal_sensors sysfs_sensors:dir r_dir_perms;
+allow hal_sensors sysfs_sensors:file rw_file_perms;
+allow hal_sensors input_device:dir search;
+allow hal_sensors input_device:dir r_dir_perms;
+allow hal_sensors input_device:chr_file r_file_perms;
+allow hal_sensors input_device:chr_file { open write };
+allow hal_sensors debugfs_tracing:file { open write };
