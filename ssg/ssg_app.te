@@ -37,6 +37,7 @@ net_domain(ssg_app)
 # Allow access to sockets
 unix_socket_connect(ssg_app, mlid, mlid)
 unix_socket_connect(ssg_app, ssgqmig, ssgqmigd)
+unix_socket_connect(ssg_app, ssgtzd, ssgtzd)
 
 allow ssg_app radio_service:service_manager find;
 allow ssg_app surfaceflinger_service:service_manager find;

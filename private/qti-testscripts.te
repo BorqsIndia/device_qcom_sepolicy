@@ -25,11 +25,17 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+#as the exec is defined in file_context  it is hitting build
+# error in user build  so moving out of the macro
+type qti-testscripts_exec, exec_type, file_type;
+
 userdebug_or_eng(`
   typeattribute  qti-testscripts coredomain;
   permissive qti-testscripts;
-  domain_trans(init, shell_exec, qti-testscripts)
+  init_daemon_domain(qti-testscripts)
 
+  #this is shell scripts and need /system/bin/sh
+  allow qti-testscripts shell_exec:file rx_file_perms;
   #super_user - start
   # Add qti-testscripts to various domains
   net_domain(qti-testscripts)
@@ -74,7 +80,7 @@ userdebug_or_eng(`
 # allow adbd qti-testscripts:process dyntransition;
   #allow { domain -mediaextractor -mediacodec } qti-testscripts:unix_stream_socket connectto;
   allow domain qti-testscripts:fd use;
-  allow { domain -mediaextractor -mediacodec } qti-testscripts:unix_stream_socket { getattr getopt read write shutdown };
+  allow { domain -mediaextractor -mediacodec -hal_configstore_server } qti-testscripts:unix_stream_socket { getattr getopt read write shutdown };
 #  binder_call({ domain -init -netd }, qti-testscripts)
   allow domain qti-testscripts:fifo_file { write getattr };
   allow domain qti-testscripts:process sigchld;

@@ -22,12 +22,8 @@ allow vm_bms {
     sysfs_usb_supply
 }:file rw_file_perms;
 
-allow vm_bms sysfs_battery_supply:file setattr;
-allow vm_bms sysfs_usb_supply:file setattr;
-allow vm_bms sysfs_battery_supply:lnk_file r_file_perms;
-
 #allow vm_bms to drop down to system service
-allow vm_bms self:capability { setpcap setgid setuid chown fowner fsetid dac_override dac_read_search };
+allow vm_bms self:capability { setpcap setgid setuid };
 
 #allow vm_bms to block the system suspend and get wake lock
 wakelock_use(vm_bms)
