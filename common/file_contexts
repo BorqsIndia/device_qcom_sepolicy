@@ -446,6 +446,7 @@
 /sys/module/lpm_levels(/.*)?                                        u:object_r:sysfs_msm_power:s0
 /sys/module/radio_iris_transport/parameters/fmsmd_set               u:object_r:sysfs_fm:s0
 /sys/module/app_setting/parameters/lib_name                         u:object_r:sysfs_lib:s0
+/sys/module/process_reclaim(/.*)?  u:object_r:sysfs_process_reclaim:s0
 
 ###################################
 # data files
@@ -609,3 +610,5 @@
 /system/etc/firmware(/.*)?                                          u:object_r:firmware_file:s0
 /system/vendor/firmware(/.*)?                                       u:object_r:firmware_file:s0
 /firmware/image(/.*)?                                               u:object_r:firmware_file:s0
+
+/(vendor|system/vendor)/bin/grep                                    u:object_r:vendor_toolbox_exec:s0
