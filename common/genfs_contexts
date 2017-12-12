@@ -8,3 +8,4 @@ genfscon debugfs /kgsl/proc u:object_r:qti_debugfs:s0
 genfscon sysfs /kernel/wcd_cpe0 u:object_r:sysfs_audio:s0
 genfscon sysfs /devices/virtual/thermal u:object_r:sysfs_thermal:s0
 genfscon sysfs /devices/virtual/kgsl/kgsl/proc u:object_r:sysfs_kgsl_proc:s0
+genfscon sysfs /kernel/boot_adsp/boot u:object_r:sysfs_boot:s0
