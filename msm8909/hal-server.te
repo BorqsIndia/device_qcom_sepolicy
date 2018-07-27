@@ -164,3 +164,8 @@ allow hal-server hal_sensors_hwservice:hwservice_manager find;
 allow hal-server hal_audio_hwservice:hwservice_manager find;
 allow hal-server hal_drm_hwservice:hwservice_manager find;
 allow hal_sensors_default  hidl_base_hwservice:hwservice_manager add;
+
+# Permission needed to write property
+allow hal-server audio_prop:property_service set;
+allow hal-server init:unix_stream_socket connectto;
+allow hal-server property_socket:sock_file write;
