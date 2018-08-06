@@ -514,6 +514,7 @@
 /sys/module/g_android/parameters/mtp_rx_req_len                     u:object_r:sysfs_usb_mtp_device:s0
 /sys/module/g_android/parameters/mtp_tx_req_len                     u:object_r:sysfs_usb_mtp_device:s0
 /sys/module/usb_f_mtp/parameters(/.*)?                              u:object_r:sysfs_usb_mtp_device:s0
+/sys/vservices(/.*)?                                                u:object_r:sysfs_vservices:s0
 
 ###################################
 # data files
