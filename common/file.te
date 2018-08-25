@@ -340,3 +340,6 @@ type kgsl_debugfs, debugfs_type, fs_type;
 
 #sysfs emmc dload type
 type sysfs_emmc_dload, sysfs_type, fs_type;
+
+# vservices sysfs files
+type sysfs_vservices, sysfs_type, fs_type;
