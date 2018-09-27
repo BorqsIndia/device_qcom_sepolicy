@@ -169,3 +169,4 @@ allow hal_sensors_default  hidl_base_hwservice:hwservice_manager add;
 allow hal-server audio_prop:property_service set;
 allow hal-server init:unix_stream_socket connectto;
 allow hal-server property_socket:sock_file write;
+set_prop(hal-server,audio_prop);

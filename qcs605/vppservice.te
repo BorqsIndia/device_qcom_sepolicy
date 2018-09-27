@@ -55,5 +55,6 @@ allow vppservice persist_file:dir search;
 allow vppservice ion_device:chr_file rw_file_perms;
 allow vppservice video_device:chr_file rw_file_perms;
 allow vppservice qdsp_device:chr_file r_file_perms;
+allow vppservice xdsp_device:chr_file r_file_perms;
 
 hal_client_domain(vppservice, hal_graphics_allocator)
