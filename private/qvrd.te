@@ -38,6 +38,10 @@ init_daemon_domain(qvrd)
 allow qvrd qvrd_data_file:dir create_dir_perms;
 allow qvrd qvrd_data_file:file create_file_perms;
 
+#allow binder use for checking permissions
+binder_use(qvrd)
+allow qvrd permission_service:service_manager find;
+
 #Allow hardware binder use
 hwbinder_use(qvrd)
 get_prop(qvrd, hwservicemanager_prop)
