@@ -238,3 +238,7 @@ allow system_app graphics_device:chr_file r_file_perms;
 allow system_app graphics_device:dir r_dir_perms;
 
 hal_client_domain(system_app, hal_sensorscalibrate_qti);
+
+#seccam
+hal_client_domain(system_app, hal_seccam);
+set_prop(system_app, vendor_seccam_prop);
