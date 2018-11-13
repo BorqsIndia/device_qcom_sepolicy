@@ -375,3 +375,4 @@ type kgsl_debugfs, debugfs_type, fs_type;
 
 #sysfs emmc dload type
 type sysfs_emmc_dload, sysfs_type, fs_type;
+type sysfs_android_usb_cfg, fs_type, sysfs_type;
