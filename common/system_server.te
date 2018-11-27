@@ -203,3 +203,6 @@ r_dir_file(system_server, kgsl_debugfs);
 
 # allow system_server to read ro.radio.noril property
 get_prop(system_server, radio_noril_prop)
+
+r_dir_file(system_server, sysfs_android_usb_cfg)
+allow system_server sysfs_android_usb_cfg:file w_file_perms;
