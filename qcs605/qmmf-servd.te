@@ -36,6 +36,8 @@ userdebug_or_eng(`
   allow qmmf-servd qti_debugfs:dir r_dir_perms;
   allow qmmf-servd qti_debugfs:file rw_file_perms;
   binder_call(qmmf-servd, qmmf-rectest)
+  # /dev/diag access
+  diag_use(qmmf-servd)
 ')
 
 # Allow access to video devices
