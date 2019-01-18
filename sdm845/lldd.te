@@ -1,4 +1,4 @@
-# Copyright (c) 2017, The Linux Foundation. All rights reserved.
+# Copyright (c) 2018-2019, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -25,11 +25,29 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-unix_socket_connect(untrusted_app_25,dpmtcm, dpmd);
-allow untrusted_app_25 dpmtcm_socket:sock_file w_file_perms;
-allow untrusted_app_25 dpmwrapper_socket:sock_file w_file_perms;
-allow untrusted_app_25 dpmd:unix_stream_socket connectto;
-unix_socket_connect(untrusted_app_25, qvrd, qvrd);
-allow untrusted_app_25 qvrd:fd use;
-unix_socket_connect(untrusted_app_25, lldd, lldd);
-allow untrusted_app_25 lldd:fd use;
+#
+# General
+#
+
+userdebug_or_eng(`
+allow lldd diag_device:chr_file rw_file_perms;
+allow lldd debugfs:dir r_dir_perms;
+allow lldd qti_debugfs:dir r_dir_perms;
+allow lldd qti_debugfs:file rw_file_perms;
+');
+
+r_dir_file(lldd, vendor_file)
+
+# Allow access to ion device
+allow lldd ion_device :chr_file r_file_perms;
+
+# Allow access to video and gpu devices
+allow lldd device:dir r_dir_perms;
+allow lldd { gpu_device video_device }:chr_file rw_file_perms;
+
+hal_client_domain(lldd, hal_perf)
+
+# LLDD
+# lld properties
+set_prop(lldd, vendor_lld_prop)
+get_prop(lldd, vendor_lld_prop)

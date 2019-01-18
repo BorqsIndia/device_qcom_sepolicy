@@ -35,3 +35,5 @@ userdebug_or_eng(`
 ')
 unix_socket_connect(untrusted_app, qvrd, qvrd);
 allow untrusted_app qvrd:fd use;
+unix_socket_connect(untrusted_app, lldd, lldd);
+allow untrusted_app lldd:fd use;
