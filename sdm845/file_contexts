@@ -102,6 +102,9 @@
 # sdm845 specific sysfs file
 /sys/devices/platform/soc/17d41000.qcom,cpucc/17d41000.qcom,cpucc:qcom,wil6210/subsys8/name    u:object_r:sysfs_ssr:s0
 
+#lld client
+/vendor/lib(64)?/liblldservice_client.qti\.so   u:object_r:same_process_hal_file:s0
+
 ###################################
 # System files
 #
